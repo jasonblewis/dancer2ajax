@@ -1,0 +1,16 @@
+schema_class: dancer2ajax::Schema
+
+# connection string
+connect_info:
+  dsn:     'dbi:SQLite:database/Chinook_Sqlite.sqlite'
+ 
+# dbic loader options
+loader_options:
+#  debug: 1
+  dump_directory: ./lib
+  components: InflateColumn::DateTime
+  components: TimeStamp
+  exclude:
+    - '\A(?:Album|Track)\z'
+    #   - '\A(?:Customer)\z'
+    #- ['\A(?:Album|Track)\z', '\A(?:Customer)\z']

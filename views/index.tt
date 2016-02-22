@@ -1,0 +1,7 @@
+<script src="/javascripts/updatetime.js"></script>
+<h2>ajax demo</h2>
+
+<button>get the current time</button>
+
+<div id="time">time</div>
+
