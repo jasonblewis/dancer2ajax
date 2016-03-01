@@ -69,9 +69,14 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("artistid");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07045 @ 2016-03-01 14:41:34
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:EOTLV2RULHZRCL69jU6+NQ
+# Created by DBIx::Class::Schema::Loader v0.07045 @ 2016-03-01 16:04:46
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:fQoXR7RFGWfMRWlkRMMsHg
+
+__PACKAGE__->has_many(
+  albums =>
+  'dancer2ajax::Schema::Album',
+  'artistid'
+);
 
 
-# You can replace this text with custom code or comments, and it will be preserved on regeneration
 1;
