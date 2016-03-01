@@ -1,0 +1,8 @@
+* Run the webapp
+#+BEGIN_SRC bash
+plackup -L Shotgun bin/app.psgi
+#+END_SRC
+* test an ajax url
+#+BEGIN_SRC 
+curl -H 'X-Requested-With: XMLHttpRequest' -d"message=hello" localhost:5000/album.json
+#+END_SRC
