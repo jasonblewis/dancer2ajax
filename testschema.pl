@@ -5,6 +5,7 @@ use strict;
 use DBIx::Class;
 use lib "/Users/jason/projects/dancer2/dancer2ajax/lib/";
 use dancer2ajax::Schema;
+use Data::Dumper;
 
 my $schema = dancer2ajax::Schema->connect('dbi:SQLite:database/Chinook_Sqlite.sqlite');
 
@@ -54,3 +55,18 @@ say "get 2 short tracks";
 while (my $shorttrack = $shorttracks->next) {
   printf "short track: %s is %d seconds long\n",$shorttrack->name, $shorttrack->milliseconds/1000;
 };
+
+$shorttracks = $schema->resultset('Track')->short()->hri;
+say "get short tracks and hri";
+
+while (my $hashref = $shorttracks->next) {
+  print Dumper($hashref);
+}
+
+
+#print Dumper($shorttracks);
+
+# while (my $shorttrack = $shorttracks->next) {
+#   printf "short track: %s is %d seconds long\n",$shorttrack->name, $shorttrack->milliseconds/1000;
+# };
+
