@@ -25,25 +25,10 @@ printf "artist name: %s\n", $artist->name;
 
 
 my $artistsalbums = $schema->resultset('Artist')->find(
-  { name => 'Calexico'})->albums;
-my $album = $artistsalbums->first;
+  { name => 'U2'})->albums;
 
-printf "artists first album: %s\n", $album->title;
-
-# my $fredsbooks = $schema->resultset('Author')->find(
-#  { Name => 'Fred' })->books;
-
-
-
-
-
-# $rs = $schema->resultset('Artist')->search(
-#   { name => 'Calexico',
-#   },
-#   { join    => 'albums',
-#     '+select' => ['album.title'],}
-# );
-# my $artist = $rs->first;
-# printf "artist first album: %s\n", $rs->get_column('Title');
+while (my $album = $artistsalbums->next) {
+  printf "album: %s\n", $album->title;
+};
 
 
