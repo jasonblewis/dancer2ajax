@@ -29,6 +29,11 @@ my $artistsalbums = $schema->resultset('Artist')->find(
 
 while (my $album = $artistsalbums->next) {
   printf "album: %s\n", $album->title;
+  my $tracks = $album->tracks;
+  while (my $track = $tracks->next) {
+    printf "    Track %d: %s\n", $track->trackid, $track->name;
+  }
+
 };
 
 
