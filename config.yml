@@ -32,6 +32,10 @@ plugins:
     content_type: 'application/json'
     
 plugins:
-    Database:
-        driver: SQLite
-        database: 'database/Chinook_Sqlite.sqlite'
+  Database:
+    driver: SQLite
+    database: 'database/Chinook_Sqlite.sqlite'
+  DBIC:
+    default:
+      dsn: dbi:SQLite:dbname=database/Chinook_Sqlite.sqlite
+      schema_class: dancer2ajax::Schema

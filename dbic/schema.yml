@@ -10,7 +10,10 @@ loader_options:
   dump_directory: ./lib
   components: InflateColumn::DateTime
   components: TimeStamp
-  exclude:
-    - '\A(?:Album|Track)\z'
+  components: Helper::Row::ToJSON
+  components: Helper::ResultSet::Shortcut
+  skip_relationships: 1
+  #  exclude:
+#    - '\A(?:Album|Track)\z'
     #   - '\A(?:Customer)\z'
     #- ['\A(?:Album|Track)\z', '\A(?:Customer)\z']
