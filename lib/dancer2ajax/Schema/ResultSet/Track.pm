@@ -1,7 +1,7 @@
 use utf8;
 package dancer2ajax::Schema::ResultSet::Track;
 
-use base 'dancer2ajax::ResultSetBase';
+use base 'dancer2ajax::Schema::ResultSet';
 
 # see https://metacpan.org/pod/distribution/DBIx-Class/lib/DBIx/Class/Manual/Cookbook.pod#Predefined-searches
 sub long {

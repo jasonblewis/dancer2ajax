@@ -16,5 +16,9 @@ __PACKAGE__->load_namespaces;
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:edB7Spn5xtZjKENqkEIjuQ
 
 
+__PACKAGE__->load_namespaces(
+   default_resultset_class => 'ResultSet',
+);
+
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
 1;
