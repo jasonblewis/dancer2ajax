@@ -31,7 +31,9 @@ while (my $album = $artistsalbums->next) {
   printf "album: %s\n", $album->title;
   my $tracks = $album->tracks;
   while (my $track = $tracks->next) {
-    printf "    Track %d: %s\n", $track->trackid, $track->name;
+#    my $mediatype = $track->mediatype->get_column('name'); # works but
+    my $mediatype = $track->mediatype->name; # also works!
+    printf "    Track %d: %s is %s\n", $track->trackid, $track->name,$mediatype;
   }
 
 };

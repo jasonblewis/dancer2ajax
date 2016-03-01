@@ -132,4 +132,10 @@ __PACKAGE__->belongs_to(
   "albumid"
 );
 
+__PACKAGE__->belongs_to(
+  "mediatype" =>
+    "dancer2ajax::Schema::Result::MediaType",
+  "mediatypeid",
+);
+
 1;
