@@ -39,3 +39,14 @@ while (my $album = $artistsalbums->next) {
 };
 
 
+my $longtracks = $schema->resultset('Track')->long();
+while (my $longtrack = $longtracks->next) {
+  printf "long track: %s is %d seconds long\n",$longtrack->name, $longtrack->milliseconds/1000;
+};
+
+my $shorttracks = $schema->resultset('Track')->short();
+while (my $shorttrack = $shorttracks->next) {
+  printf "short track: %s is %d seconds long\n",$shorttrack->name, $shorttrack->milliseconds/1000;
+};
+
+
