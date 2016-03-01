@@ -11,7 +11,7 @@ loader_options:
   components: InflateColumn::DateTime
   components: TimeStamp
   components: Helper::Row::ToJSON
-  components: Helper::ResultSet::Shortcut
+#  components: Helper::ResultSet::Shortcut
   skip_relationships: 1
   #  exclude:
 #    - '\A(?:Album|Track)\z'

@@ -19,13 +19,13 @@ use base 'DBIx::Class::Core';
 
 =over 4
 
-=item * L<DBIx::Class::Helper::ResultSet::Shortcut>
+=item * L<DBIx::Class::Helper::Row::ToJSON>
 
 =back
 
 =cut
 
-__PACKAGE__->load_components("Helper::ResultSet::Shortcut");
+__PACKAGE__->load_components("Helper::Row::ToJSON");
 
 =head1 TABLE: C<Album>
 
@@ -77,18 +77,9 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("albumid");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07045 @ 2016-02-25 00:13:07
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:D9D/WmbG67w8BEwCW62ndQ
-
+# Created by DBIx::Class::Schema::Loader v0.07045 @ 2016-03-01 14:41:34
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:8Dxph6J8N9RR8RfX/K/EHA
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
-
-__PACKAGE__->belongs_to(
-  artist =>
-  'dancer2ajax::Schema::Result::Artist',
-  'artistid'
-);
-
-
 1;

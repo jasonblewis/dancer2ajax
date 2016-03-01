@@ -19,13 +19,13 @@ use base 'DBIx::Class::Core';
 
 =over 4
 
-=item * L<DBIx::Class::Helper::ResultSet::Shortcut>
+=item * L<DBIx::Class::Helper::Row::ToJSON>
 
 =back
 
 =cut
 
-__PACKAGE__->load_components("Helper::ResultSet::Shortcut");
+__PACKAGE__->load_components("Helper::Row::ToJSON");
 
 =head1 TABLE: C<PlaylistTrack>
 
@@ -71,8 +71,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("playlistid", "trackid");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07045 @ 2016-02-25 00:13:07
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:LNBIF5dEKF/8NgFxHyUpiw
+# Created by DBIx::Class::Schema::Loader v0.07045 @ 2016-03-01 14:41:34
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:OCEr75OjkmOF9wfpzP/zjw
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration

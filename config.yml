@@ -39,3 +39,6 @@ plugins:
     default:
       dsn: dbi:SQLite:dbname=database/Chinook_Sqlite.sqlite
       schema_class: dancer2ajax::Schema
+      options:
+        RaiseError: 1
+        PrintError: 1
