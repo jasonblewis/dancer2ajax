@@ -87,5 +87,11 @@ __PACKAGE__->belongs_to(
   "artistid"
 );
 
-# You can replace this text with custom code or comments, and it will be preserved on regeneration
+__PACKAGE__->has_many(
+  "tracks" =>
+  "dancer2ajax::Schema::Result::Track",
+  "albumid"
+);
+
+
 1;
