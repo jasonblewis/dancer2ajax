@@ -49,4 +49,8 @@ while (my $shorttrack = $shorttracks->next) {
   printf "short track: %s is %d seconds long\n",$shorttrack->name, $shorttrack->milliseconds/1000;
 };
 
-
+$shorttracks = $schema->resultset('Track')->short()->rows(2);
+say "get 2 short tracks";
+while (my $shorttrack = $shorttracks->next) {
+  printf "short track: %s is %d seconds long\n",$shorttrack->name, $shorttrack->milliseconds/1000;
+};
