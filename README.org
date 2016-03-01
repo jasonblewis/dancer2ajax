@@ -6,3 +6,8 @@ plackup -L Shotgun bin/app.psgi
 #+BEGIN_SRC 
 curl -H 'X-Requested-With: XMLHttpRequest' -d"message=hello" localhost:5000/album.json
 #+END_SRC
+* regenerate schema
+I'm deliberately dumping without relationship - learning how to write the relations manually
+#+BEGIN_SRC bash
+dbicdump dbic/schema.yml
+#+END_SRC
