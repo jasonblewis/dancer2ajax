@@ -8,10 +8,11 @@ connect_info:
 loader_options:
 #  debug: 1
   dump_directory: ./lib
-  components: InflateColumn::DateTime
-  components: TimeStamp
-  components: Helper::Row::ToJSON
-#  components: Helper::ResultSet::Shortcut
+  components:
+    - InflateColumn::DateTime
+    - TimeStamp
+    - Helper::Row::ToJSON
+#    - Helper::ResultSet::Shortcut
   skip_relationships: 1
   #  exclude:
 #    - '\A(?:Album|Track)\z'

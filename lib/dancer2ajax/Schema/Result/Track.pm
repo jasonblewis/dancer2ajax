@@ -19,13 +19,17 @@ use base 'DBIx::Class::Core';
 
 =over 4
 
+=item * L<DBIx::Class::InflateColumn::DateTime>
+
+=item * L<DBIx::Class::TimeStamp>
+
 =item * L<DBIx::Class::Helper::Row::ToJSON>
 
 =back
 
 =cut
 
-__PACKAGE__->load_components("Helper::Row::ToJSON");
+__PACKAGE__->load_components("InflateColumn::DateTime", "TimeStamp", "Helper::Row::ToJSON");
 
 =head1 TABLE: C<Track>
 
@@ -123,8 +127,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("trackid");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07045 @ 2016-03-01 16:04:46
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:YOdGXowpbdWLPfkoDu/bOg
+# Created by DBIx::Class::Schema::Loader v0.07045 @ 2016-03-01 22:10:44
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:6W2pPYJxI120XUNk+V1Mzw
 
 __PACKAGE__->belongs_to(
   "album" =>

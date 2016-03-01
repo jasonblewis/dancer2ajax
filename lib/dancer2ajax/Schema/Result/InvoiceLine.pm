@@ -19,13 +19,17 @@ use base 'DBIx::Class::Core';
 
 =over 4
 
+=item * L<DBIx::Class::InflateColumn::DateTime>
+
+=item * L<DBIx::Class::TimeStamp>
+
 =item * L<DBIx::Class::Helper::Row::ToJSON>
 
 =back
 
 =cut
 
-__PACKAGE__->load_components("Helper::Row::ToJSON");
+__PACKAGE__->load_components("InflateColumn::DateTime", "TimeStamp", "Helper::Row::ToJSON");
 
 =head1 TABLE: C<InvoiceLine>
 
@@ -92,8 +96,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("invoicelineid");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07045 @ 2016-03-01 16:04:46
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:Bfu1xieWBFISZ/F0dFQh6Q
+# Created by DBIx::Class::Schema::Loader v0.07045 @ 2016-03-01 22:10:44
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:8Tfew+je/bObl0JdLyQsQw
 
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
