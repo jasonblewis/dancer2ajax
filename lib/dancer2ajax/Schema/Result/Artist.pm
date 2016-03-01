@@ -74,7 +74,7 @@ __PACKAGE__->set_primary_key("artistid");
 
 __PACKAGE__->has_many(
   albums =>
-  'dancer2ajax::Schema::Album',
+  'dancer2ajax::Schema::Result::Album',
   'artistid'
 );
 
