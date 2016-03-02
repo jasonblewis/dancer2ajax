@@ -3,5 +3,7 @@
 
 <button>get the current time</button>
 
+<h2><a href="/albums">albums</a></h2>
+
 <div id="time">time</div>
 
