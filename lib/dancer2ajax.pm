@@ -12,11 +12,12 @@ use Data::Dumper;
 our $VERSION = '0.1';
 
 ajax '/album.json' => sub {
-  my $rs  = resultset('Album')->search('14')->hri;
+#  my @rs  = resultset('Album')->search('14')->cursor->all;
+  my @rs  = resultset('Album')->search('14')->hri;
 
 #  $rs->result_class('DBIx::Class::ResultClass::HashRefInflator');
   #print Dumper($rs);
-  to_json {data => [$rs]};
+  to_json {data => [@rs]};
 };
 
 # ajax '/artist.json' => sub {

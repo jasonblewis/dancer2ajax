@@ -66,9 +66,8 @@ while (my $hashref = $shorttracks->next) {
 $album = $schema->resultset('Album')->find(14);
 printf "Album Title: %s\n", $album->title;
 
-$rs = $schema->resultset('Album')->search({ title => 'Muso Ko'})->hri;
-print Dumper($rs);
-
+my @rs = $schema->resultset('Album')->search({ title => 'Muso Ko'})->hri;
+print Dumper(@rs);
 
 
 #print Dumper($shorttracks);
