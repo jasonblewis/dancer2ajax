@@ -1,0 +1,26 @@
+<h2>Artists</h2>
+
+<table id="example" class="display" cellspacing="0" width="90%">
+    <thead>
+        <tr>
+            <th>name</th>
+            <th>artistid</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <th>name</th>
+            <th>artistid</th>
+        </tr>
+    </tfoot>
+</table>
+
+<script>
+ $('#example').dataTable( {
+     "ajax": "artist.json",
+     "columns": [
+         { "data": "name"},
+         { "data": "artistid"},
+     ]
+ } );
+</script>

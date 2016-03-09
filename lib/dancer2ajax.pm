@@ -11,6 +11,13 @@ use Data::Dumper;
 
 our $VERSION = '0.1';
 
+
+ajax '/artist.json' => sub {
+  my @rs  = rset('Artist')->search({})->hri;
+  to_json {data => [@rs]};
+};
+
+
 ajax '/album.json' => sub {
 #  my @rs  = resultset('Album')->search('14')->cursor->all;
   my @rs  = rset('Album')->search({
@@ -19,6 +26,8 @@ ajax '/album.json' => sub {
 
   to_json {data => [@rs]};
 };
+
+
 
 ajax '/time' => sub {
   my $timestr = localtime;
@@ -37,6 +46,12 @@ ajax '/albumdbi.json' => sub {
 get '/albums' => sub {
   template 'albums';
 };
+
+get '/artists' => sub {
+  template 'artists';
+};
+
+
 
   get '/' => sub {
     template 'index';
