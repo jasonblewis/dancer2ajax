@@ -17,7 +17,7 @@
 
 <script>
  $('#example').dataTable( {
-     "ajax": "artist.json",
+     "ajax": "api/artist.json",
      "columns": [
          { "data": "name"},
          { "data": "artistid"},

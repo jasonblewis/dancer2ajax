@@ -6,4 +6,12 @@ use FindBin;
 use lib "$FindBin::Bin/../lib";
 
 use dancer2ajax;
-dancer2ajax->to_app;
+use dancer2ajax::API;
+
+use Plack::Builder;
+
+builder {
+  mount '/' => dancer2ajax->to_app;
+  mount '/api' => dancer2ajax::API->to_app;
+};
+

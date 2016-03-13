@@ -132,5 +132,10 @@ __PACKAGE__->set_primary_key("invoiceid");
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:vl8DJCEvXEu920Jpl8XqmQ
 
 
-# You can replace this text with custom code or comments, and it will be preserved on regeneration
+__PACKAGE__->has_many(
+  invoice_lines =>
+    'dancer2ajax::Schema::Result::InvoiceLine',
+  'invoiceid'
+);
+
 1;

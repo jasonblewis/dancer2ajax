@@ -131,17 +131,13 @@ while (my $invoice = $invoices->next) {
 }
 
 
-### date time tests with literal sql
-# https://metacpan.org/pod/distribution/DBIx-Class/lib/DBIx/Class/Manual/Cookbook.pod#Using-database-functions-or-stored-procedures
-#   $invoices = $schema->resultset('Invoice')->search_rs(
-#     undef,
-#     {
-#       selecct => [ 'invoicedate, { 'strftime('%Y-%m-%d', ...)}]
-#     }
-#   )->rows(10);
+### invoice lines
+my $invoicelines = $schema->resultset('InvoiceLine')->search_rs({
+  invoiceid => '3',}
+)->rows(10);
 
-# while (my $invoice = $invoices->next) {
-#   say "invoice: ", $invoice->get_column('invoice_id'),
-#     " invoice datetime: ", $invoice->get_column('invoice_datetime'),
-#     " invoice date: ", $invoice->get_column('invoice_date');
-# }
+while (my $invoiceline = $invoicelines->next) {
+  say "invoiceid: ", $invoiceline->invoiceid,
+    " invoicelineid: ", $invoiceline->invoicelineid,
+    " quantity: ",      $invoiceline->quantity
+}

@@ -27,10 +27,7 @@ template: "template_toolkit"
 #       start_tag: '<%'
 #       end_tag:   '%>'
 
-plugins:
-  Ajax:
-    content_type: 'application/json'
-    
+
 plugins:
   Database:
     driver: SQLite

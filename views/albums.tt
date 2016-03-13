@@ -19,7 +19,7 @@ table
 
 <script>
  $('#example').dataTable( {
-     "ajax": "album.json",
+     "ajax": "api/album.json",
      "columns": [
          { "data": "title"},
          { "data": "artistid"},
