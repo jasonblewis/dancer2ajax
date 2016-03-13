@@ -11,11 +11,20 @@ use Data::Dumper;
 our $VERSION = '0.1';
 
 post '/artist.json' => sub {
-  print Dumper (body_parameters);
-  my $name = body_parameters->get('name');
+  #print Dumper (body_parameters);
 
-  say "artist name: ", $name;
-  return {abc => '123'}
+  my $name = body_parameters->get('name');
+  
+  my $new_artist_rs = schema->resultset('Artist')->find_or_create({
+    name => $name,
+  });
+  
+
+  #say "found or created artist name: ", $new_artist_rs->name;
+   return {data => {
+     $new_artist_rs->get_columns}}
+#   Dancer2::Core::HTTP->status(409);
+    
 };
 
   
