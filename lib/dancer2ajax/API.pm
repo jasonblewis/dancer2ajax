@@ -7,48 +7,10 @@ use DBI;
 use Dancer2::Plugin::DBIC;
 use Data::Dumper;
 use Try::Tiny;
+use dancer2ajax::API::Artists;
 
 our $VERSION = '0.1';
 
-post '/artists' => sub {
-  
-  my $name = body_parameters->get('name');
-  
-  try {  
-    my $new_artist_rs = schema->resultset('Artist')->create({
-      name => $name,
-    });
-    redirect '/api/artists/' . $new_artist_rs->artistid, 201;
-
-  } catch {
-    my $exception = $_;
-    warn "ERROR: $exception";
-    status 409;
-    return {error => "could not create artist"};
-  };
-    
-};
-
-
-put '/artists/:artistid' => sub {
-  
-  my $artistid = route_parameters->get('artistid');
-  my $name = body_parameters->get('name');
-  
-  try {  
-    my $new_artist_rs = schema->resultset('Artist')->create({
-      artistid => $artistid,
-      name => $name,
-    });
-      return {data => {
-    $new_artist_rs->get_columns}}
-  } catch {
-    #warn "could not create artist as $artistid already exists";
-    status 409;
-    return {error => "could not create artist"};
-  };
-    
-};
 
 
 post '/artist.json' => sub {
@@ -70,12 +32,6 @@ post '/artist.json' => sub {
     
 };
 
-get '/artists/:artistid' => sub {
-  my $artistid = route_parameters->get('artistid');
-  my $rs = schema->resultset('Artist')->find(
-  {artistid => $artistid});
-  return {data => [$rs->all]} 
-};
 
 
 get '/artist.json' => sub {
