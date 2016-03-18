@@ -1,8 +1,5 @@
 package dancer2ajax;
 use Dancer2;
-#use Dancer2::Plugin::Database;
-#use DBI;
-#use Dancer2::Plugin::DBIC;
 use Data::Dumper;
 
 
