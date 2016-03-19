@@ -54,6 +54,7 @@ sub update {
 
 
 sub remove { # delete but that name clashes with perl's delete
+  # delete should be indempotent, so only try and delete if the record exists
   my $artistid = route_parameters->get('artistid');
   
   try {  
