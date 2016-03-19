@@ -37,18 +37,18 @@ put '/artists/:artistid' => sub {
   my $name = body_parameters->get('name');
   
   try {  
-    my $new_artist_rs = schema->resultset('Artist')->create({
+    my $new_artist_rs = schema->resultset('Artist')->update_or_create({
       artistid => $artistid,
       name => $name,
     });
-      return {data => {
-    $new_artist_rs->get_columns}}
+    status 204;
+    return undef;
   } catch {
-    #warn "could not create artist as $artistid already exists";
+    my $exception = $_;
+    warn "ERROR: $exception";
     status 409;
-    return {error => "could not create artist"};
+    return {error => "$exception"};
   };
-    
 };
 
 1;
