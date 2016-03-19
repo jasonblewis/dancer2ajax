@@ -4,14 +4,14 @@ use Dancer2 appname => 'dancer2ajax::API';
 use Dancer2::Plugin::DBIC;
 
 # curl http://localhost:5000/api/artists/573
-get '/artists/:artistid' => sub {
+sub read {
   my $artistid = route_parameters->get('artistid');
   my $rs = schema->resultset('Artist')->find($artistid);
   return {data => [$rs->get_columns]} 
 };
 
 # curl -v --data '{"name":"Tool"}' localhost:5000/api/artists
-post '/artists' => sub {
+sub create {
   
   my $name = body_parameters->get('name');
   
@@ -31,7 +31,7 @@ post '/artists' => sub {
 };
 
 
-put '/artists/:artistid' => sub {
+sub update {
   
   my $artistid = route_parameters->get('artistid');
   my $name = body_parameters->get('name');
@@ -50,5 +50,35 @@ put '/artists/:artistid' => sub {
     return {error => "$exception"};
   };
 };
+
+
+
+sub remove { # delete but that name clashes with perl's delete
+  my $artistid = route_parameters->get('artistid');
+  
+  try {  
+    if (my $artist = schema->resultset('Artist')->find({
+      artistid => $artistid,
+    })) {
+      $artist->delete;
+    }
+    status 204;
+    return undef;
+  } catch {
+    my $exception = $_;
+    warn "ERROR: $exception";
+    status 409;
+    return {error => "$exception"};
+  };
+}
+
+
+prefix '/artists' => sub {
+  get '/:artistid' => \&read;
+  post ''          => \&create;
+  put '/:artistid' => \&update;
+  del '/:artistid' => \&remove;
+};
+
 
 1;
