@@ -17,8 +17,9 @@ __PACKAGE__->load_namespaces;
 
 
 __PACKAGE__->load_namespaces(
-   default_resultset_class => 'ResultSet',
-);
+   #default_resultset_class => 'ResultSet',
+   default_resultset_class => '+dancer2ajax::Schema::ResultSet',
+ );
 
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
 1;

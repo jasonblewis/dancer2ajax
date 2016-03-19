@@ -12,7 +12,9 @@ loader_options:
     - InflateColumn::DateTime
     - TimeStamp
     - Helper::Row::ToJSON
-#    - Helper::ResultSet::Shortcut
+    # don't be tempted to do this here - that's wrong!
+    # <ilmari> k-man: create a custom resultset base class and set that as default_resultset_class
+    #    - Helper::ResultSet::Shortcut
   skip_relationships: 1
   #  exclude:
 #    - '\A(?:Album|Track)\z'

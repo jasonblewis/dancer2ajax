@@ -73,8 +73,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("mediatypeid");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07045 @ 2016-03-01 22:10:44
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:T65RwZMLSy/9sCVGKSuDXQ
+# Created by DBIx::Class::Schema::Loader v0.07045 @ 2016-03-19 21:49:31
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:wI/Fy49RHthU5NdBKBdOXA
 
 __PACKAGE__->has_many("tracks" =>
                         "dancer2ajax::Schema::Result::Track",

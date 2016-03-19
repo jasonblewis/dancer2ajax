@@ -4,10 +4,16 @@ use Dancer2 appname => 'dancer2ajax::API';
 use Dancer2::Plugin::DBIC;
 
 # curl http://localhost:5000/api/artists/573
-sub read {
+sub read_one {
   my $artistid = route_parameters->get('artistid');
   my $rs = schema->resultset('Artist')->find($artistid);
   return {data => [$rs->get_columns]} 
+};
+
+sub read_many {
+  my $artistid = route_parameters->get('artistid');
+  my $rs = schema->resultset('Artist')->hri;
+  return {data => [$rs->all]} 
 };
 
 # curl -v --data '{"name":"Tool"}' localhost:5000/api/artists
@@ -52,7 +58,6 @@ sub update {
 };
 
 
-
 sub remove { # delete but that name clashes with perl's delete
   # delete should be indempotent, so only try and delete if the record exists
   my $artistid = route_parameters->get('artistid');
@@ -75,7 +80,8 @@ sub remove { # delete but that name clashes with perl's delete
 
 
 prefix '/artists' => sub {
-  get '/:artistid' => \&read;
+  get '/:artistid' => \&read_one;
+  get ''           => \&read_many;
   post ''          => \&create;
   put '/:artistid' => \&update;
   del '/:artistid' => \&remove;

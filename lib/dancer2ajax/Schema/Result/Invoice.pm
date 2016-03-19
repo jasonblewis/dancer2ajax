@@ -128,8 +128,8 @@ __PACKAGE__->add_columns(
 __PACKAGE__->set_primary_key("invoiceid");
 
 
-# Created by DBIx::Class::Schema::Loader v0.07045 @ 2016-03-01 22:10:44
-# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:vl8DJCEvXEu920Jpl8XqmQ
+# Created by DBIx::Class::Schema::Loader v0.07045 @ 2016-03-19 21:49:31
+# DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:fRNNW5Oh7o54dbQ3QfxtCg
 
 
 __PACKAGE__->has_many(
